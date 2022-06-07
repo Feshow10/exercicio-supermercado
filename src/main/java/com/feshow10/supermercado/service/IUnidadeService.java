@@ -1,23 +1,18 @@
 package com.feshow10.supermercado.service;
 
 import com.feshow10.supermercado.entity.Unidade;
-import com.feshow10.supermercado.entity.form.UnidadeForm;
+import com.feshow10.supermercado.entity.dto.UnidadeDto;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUnidadeService {
 
-    default Unidade create(UnidadeForm form){
-        return null;
-    }
+    Unidade create(UnidadeDto form);
 
-    default Unidade get(Long id) {
-        return null;
-    }
+    Optional<Unidade> get(Long id);
 
-    default List<Unidade> getAll() {
-        return null;
-    }
+    List<Unidade> getAll();
 
     //Unidade update(Long id, UnidadeUpdateForm formUpdate);
 

@@ -1,13 +1,14 @@
 package com.feshow10.supermercado.service.impl;
 
 import com.feshow10.supermercado.entity.Unidade;
-import com.feshow10.supermercado.entity.form.UnidadeForm;
+import com.feshow10.supermercado.entity.dto.UnidadeDto;
 import com.feshow10.supermercado.repository.UnidadeRepository;
 import com.feshow10.supermercado.service.IUnidadeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UnidadeServiceImpl implements IUnidadeService {
@@ -15,7 +16,7 @@ public class UnidadeServiceImpl implements IUnidadeService {
     private UnidadeRepository repository;
 
     @Override
-    public Unidade create(UnidadeForm form) {
+    public Unidade create(UnidadeDto form) {
         Unidade unidade = new Unidade();
         unidade.setNome(form.getNome());
         unidade.setEndereco(form.getEndereco());
@@ -28,8 +29,8 @@ public class UnidadeServiceImpl implements IUnidadeService {
     }
 
     @Override
-    public Unidade get(Long id) {
-        return null;
+    public Optional<Unidade> get(Long id) {
+        return repository.findById(id);
     }
 
     @Override
